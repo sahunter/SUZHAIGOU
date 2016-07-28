@@ -1,0 +1,86 @@
+package ecshop.night.controller;
+
+import java.io.IOException;
+
+
+
+
+
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import ecshop.night.model.Administrator;
+import ecshop.night.model.Customer;
+import ecshop.night.model.WebService;
+
+
+/**
+ * Servlet implementation class Admin
+ */
+@WebServlet(urlPatterns={"/admin.do"},
+	initParams={
+        @WebInitParam(name = "SUCCESS_VIEW", value = "adminpages/index.jsp"),
+        @WebInitParam(name = "ERROR_VIEW", value = "404.html")			//改改改改改改改改
+    })
+public class Adminlogin extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private String SUCCESS_VIEW;
+    private String ERROR_VIEW;  
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Adminlogin() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    @Override
+    public void init() throws ServletException {
+        SUCCESS_VIEW = getServletConfig().getInitParameter("SUCCESS_VIEW");
+        ERROR_VIEW = getServletConfig().getInitParameter("ERROR_VIEW");
+    }
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		String name = (String) request.getSession().getAttribute("login");
+		String page = ERROR_VIEW;
+		
+		//if(name.equals("admin")){
+		WebService userService = (WebService) getServletContext()
+                .getAttribute("userService");
+		
+	    String username = request.getParameter("name");
+	    String password = request.getParameter("password");
+	    //int i=OnlineCounter.getCounter();
+	    Administrator account = new Administrator();
+	    account.setName(username);
+	    account.setPassword(password);
+	    if(userService.checkLogin(account)){		//新增方法
+	        
+	        //request.setAttribute("counter", i);
+	        request.setAttribute("name", username);        //存疑存
+	        request.getSession().setAttribute("alogin", username);
+	        page = SUCCESS_VIEW;
+	        }else{
+	       	page = ERROR_VIEW;
+	        request.setAttribute("name", username);}    
+	    request.getRequestDispatcher(page).forward(request, response);
+	}
+
+}

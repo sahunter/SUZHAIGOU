@@ -1,0 +1,107 @@
+@CHARSET "UTF-8";
+/*reset*/
+html, body, p, h1, h2, h3, h4, h5, h6, form, input, textarea, select,
+	button, fieldset, legend, img, ul, ol, li, dl, dt, dd, th, td, pre,
+	blockquote {
+	margin: 0;
+	padding: 0
+}
+
+html {
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased
+}
+
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	color: #5a5a5a;
+	background-color: #FFFFFF;
+	color: #666;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%
+}
+/*全局*/
+a:hover, a:focus {
+	color: #2a6496;
+	text-decoration: underline;
+}
+
+a:focus {
+	outline: thin dotted #333;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+/*导航条*/
+.navbar {
+	background-color: #080708;
+	hight: 10px;
+	margin: 0px;
+	padding-top: 2px;
+}
+
+/* 轮播广告 */
+.carousel {
+	height: 500px;
+	margin-bottom: 60px;
+}
+
+.carousel .item {
+	height: 500px;
+	background-color: #000;
+}
+
+.carousel .item img {
+	width: 100%;
+	height: 100%;
+}
+
+.carousel-caption {
+	z-index: 10;
+}
+
+.carousel-caption p {
+	margin-bottom: 20px;
+	font-size: 20px;
+	line-height: 1.8;
+}
+/* 简介 */
+.summary {
+	padding-right: 15px;
+	padding-left: 30px;
+	text-align: center;
+}
+
+.summary .col-md-4 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+/* 按钮*/
+.btn {
+	background-color: #9CD430;
+	font-color: #FFFFFF;
+}
+
+.nnn {
+	padding-left: 50px;
+}
+
+.footer1 {
+	background-color: #080708;
+}
+
+.pppp img {
+	weight: 200px;
+	height: 200px;
+}
+
+.nbnb {
+	weight: 30%;
+}
+
+.yonghu {
+	padding-left: 70px;
+}
