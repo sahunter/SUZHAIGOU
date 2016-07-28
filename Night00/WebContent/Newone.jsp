@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Buy_shop an E-Commerce online Shopping Category Flat
+	Bootstarp responsive Website Template| Men :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Buy_shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<script src="js/simpleCart.min.js"> </script>
+<!-- Custom Theme files -->
+<!--webfont-->
+<link
+	href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900'
+	rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<!-- start menu -->
+<link href="css/megamenu.css" rel="stylesheet" type="text/css"
+	media="all" />
+<script type="text/javascript" src="js/megamenu.js"></script>
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" id="sourcecode">
+			$(function()
+			{
+				$('.scroll-pane').jScrollPane();
+			});
+		</script>
+</head>
+<body>
+
+	<c:forEach var="blah" items="${requestScope.blahs}">
+
+		<a href="single.html"> <img src='${blah.picture}' alt="图片" /></a>
+		<h5>
+			<a href="single.html"> ${blah.goodsname}</a>
+		</h5>
+		<h6>It is a long establishe ${blah.introduction}</h6>
+
+		<span>￥${blah.price}</span>
+
+		<select>
+			<option value="Small">绿色</option>
+			<option value="Medium">蓝色</option>
+			<option value="Large">粉红色</option>
+			<option value="Large">黄色</option>
+		</select>
+
+		<input type="text" value="1" />
+		<input type="button" value="" />
+	</c:forEach>
+
+</body>
+</html>
